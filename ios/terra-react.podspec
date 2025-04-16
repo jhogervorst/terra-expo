@@ -1,6 +1,6 @@
 require "json"
 
-package = JSON.parse(File.read(File.join(__dir__, "package.json")))
+package = JSON.parse(File.read(File.join(__dir__, "..", "package.json")))
 
 Pod::Spec.new do |s|
   s.name         = "terra-react"
@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.frameworks = ['HealthKit']
   s.dependency "TerraiOS", "1.6.24"
   s.dependency "React-Core"
+  s.dependency 'ExpoModulesCore'
 end

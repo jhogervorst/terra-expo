@@ -1,7 +1,7 @@
 {
-  "name": "terra-react",
+  "name": "terra-expo",
   "version": "1.7.3",
-  "description": "React Native SDK mapping for Terra API",
+  "description": "Unofficial Expo Module with React Native SDK mapping for Terra API",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/index.d.ts",
@@ -13,6 +13,7 @@
     "android",
     "ios",
     "cpp",
+    "expo-module.config.json",
     "terra-react.podspec",
     "!lib/typescript/example",
     "!android/build",
@@ -38,17 +39,18 @@
     "postversion": "git push && git push --tags"
   },
   "keywords": [
+    "expo",
     "react-native",
     "ios",
     "android"
   ],
-  "repository": "https://github.com/tryterra/terra-react",
-  "author": "TerraDev <dev@tryterra.co> (https://tryterra.co)",
+  "repository": "https://github.com/jhogervorst/terra-expo",
+  "author": "jhogervorst",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/tryterra/terra-react/issues"
+    "url": "https://github.com/jhogervorst/terra-expo/issues"
   },
-  "homepage": "https://github.com/tryterra/terra-react#readme",
+  "homepage": "https://github.com/jhogervorst/terra-expo#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -63,6 +65,7 @@
     "eslint": "^7.2.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.1.3",
+    "expo-modules-core": "^2.2.3",
     "husky": "^6.0.0",
     "jest": "^26.6.3",
     "pod-install": "^0.1.0",
@@ -74,8 +77,14 @@
     "typescript": "^4.1.3"
   },
   "peerDependencies": {
+    "expo": "*",
     "react": "*",
     "react-native": "*"
+  },
+  "peerDependenciesMeta": {
+    "expo": {
+      "optional": true
+    }
   },
   "jest": {
     "preset": "react-native",

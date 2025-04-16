@@ -4195,6 +4195,13 @@ expect@^26.6.2:
     jest-message-util "^26.6.2"
     jest-regex-util "^26.0.0"
 
+expo-modules-core@^2.2.3:
+  version "2.2.3"
+  resolved "https://registry.npmjs.org/expo-modules-core/-/expo-modules-core-2.2.3.tgz"
+  integrity sha512-01QqZzpP/wWlxnNly4G06MsOBUTbMDj02DQigZoXfDh80vd/rk3/uVXqnZgOdLSggTs6DnvOgAUy0H2q30XdUg==
+  dependencies:
+    invariant "^2.2.4"
+
 extend-shallow@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/extend-shallow/-/extend-shallow-2.0.1.tgz"
