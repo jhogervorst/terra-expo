@@ -18,4 +18,5 @@ Pod::Spec.new do |s|
   s.frameworks = ['HealthKit']
   s.dependency "TerraiOS", "1.6.24"
   s.dependency "React-Core"
+  s.dependency 'ExpoModulesCore'
 end
