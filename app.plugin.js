@@ -7,10 +7,21 @@ const {
 /* eslint-disable no-shadow */
 
 const DEFAULT_HEALTH_SHARE_PERMISSION =
-  'Allow $(PRODUCT_NAME) to access your health info';
+  'Allow $(PRODUCT_NAME) to access your health data';
+const DEFAULT_HEALTH_UPDATE_PERMISSION =
+  'Allow $(PRODUCT_NAME) to update your health data';
+const DEFAULT_HEALTH_RECORDS_SHARE_PERMISSION =
+  'Allow $(PRODUCT_NAME) to access your health records';
 const BACKGROUND_TASK_IDENTIFIER = 'co.tryterra.data.post.request';
 
-const withIosHealthKit = (config, { healthSharePermission } = {}) =>
+const withIosHealthKit = (
+  config,
+  {
+    healthSharePermission,
+    healthUpdatePermission,
+    healthRecordsSharePermission,
+  } = {}
+) =>
   withPlugins(config, [
     (config) =>
       withEntitlementsPlist(config, (config) => {
@@ -26,6 +37,15 @@ const withIosHealthKit = (config, { healthSharePermission } = {}) =>
           healthSharePermission ||
           config.modResults.NSHealthShareUsageDescription ||
           DEFAULT_HEALTH_SHARE_PERMISSION;
+        config.modResults.NSHealthUpdateUsageDescription =
+          healthUpdatePermission ||
+          config.modResults.NSHealthUpdateUsageDescription ||
+          DEFAULT_HEALTH_UPDATE_PERMISSION;
+        config.modResults.NSHealthClinicalHealthRecordsShareUsageDescription =
+          healthRecordsSharePermission ||
+          config.modResults
+            .NSHealthClinicalHealthRecordsShareUsageDescription ||
+          DEFAULT_HEALTH_RECORDS_SHARE_PERMISSION;
         return config;
       }),
   ]);
@@ -56,9 +76,23 @@ const withIosBackgroundExecution = (config) =>
     return config;
   });
 
-const withTerraIos = (config, { healthSharePermission } = {}) =>
+const withTerraIos = (
+  config,
+  {
+    healthSharePermission,
+    healthUpdatePermission,
+    healthRecordsSharePermission,
+  } = {}
+) =>
   withPlugins(config, [
-    [withIosHealthKit, { healthSharePermission }],
+    [
+      withIosHealthKit,
+      {
+        healthSharePermission,
+        healthUpdatePermission,
+        healthRecordsSharePermission,
+      },
+    ],
     withIosBackgroundExecution,
   ]);
 

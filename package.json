@@ -1,6 +1,6 @@
 {
   "name": "terra-expo",
-  "version": "1.7.6-unofficial",
+  "version": "1.7.6-unofficial.2",
   "description": "Unofficial Expo Module with React Native SDK mapping for Terra API",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
